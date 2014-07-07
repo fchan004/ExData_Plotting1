@@ -11,25 +11,6 @@ date_time <- paste(raw2$Date, raw2$Time)
 date_time <- strptime(date_time, "%Y-%m-%d %H:%M:%S")
 raw2 <- cbind(date_time, raw2)
 
-
-#Plot1
-png(file = "plot1.png", width = 480, height = 480)
-hist(raw2$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
-dev.off()
-
-#Plot2
-png(file = "plot2.png", width = 480, height = 480)
-plot(raw2$date_time, raw2$Global_active_power, type = "l", xlab ="", ylab = "Global Active Power (kilowatts)")
-dev.off()
-
-#Plot3
-png(file = "plot3.png", width = 480, height = 480)
-plot(raw2$date_time, raw2$Sub_metering_1, type = "l", xlab = "", ylab = "Energy sub metering")
-lines(raw2$date_time, raw2$Sub_metering_2, col = "red")
-lines(raw2$date_time, raw2$Sub_metering_3, col = "blue")
-legend("topright", pch = "__________", col = c("black","blue","red"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-dev.off()
-
 #Plot4
 png(file = "plot4.png", width = 480, height = 480)
 par(mfrow = c(2,2))
